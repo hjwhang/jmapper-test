@@ -15,18 +15,13 @@ public class SExplicitDynamicConversion2 {
 	@JMap("destination4")
 	private String source4;
 	
-	@JMapConversion(from={"source","source2"},to={"destination","destination2"},type=Type.DYNAMIC)
+	@JMapConversion(from={"source2"},to={"destination2"},type=Type.DYNAMIC)
 	public static String conversion(){
 		return "String s; "+
 			   "return s.toString();";
 		
 	}
 	
-	@JMapConversion(from={"source3","source4"},to={"destination3","destination4"},type=Type.DYNAMIC)
-	public static String conversion2(){
-		return "String s; "+
-				   "return s.toString();";
-	}
 	public String getSource() {
 		return source;
 	}

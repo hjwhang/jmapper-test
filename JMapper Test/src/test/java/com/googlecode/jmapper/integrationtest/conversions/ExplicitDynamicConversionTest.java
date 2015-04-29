@@ -82,6 +82,7 @@ public class ExplicitDynamicConversionTest extends TestCase{
     		new JMapper<DExplicitDynamicConversion, SExplicitDynamicConversion2>(DExplicitDynamicConversion.class, SExplicitDynamicConversion2.class);
 		}catch(JMapperException e){}
     	
+    	//TODO capire perche (in java8) prende conversion2 anziche conversion
     	assertEquals("ERROR - ConversionBodyIllegalCodeException: the conversion method contains illegal code, check the conversion code belonging to the SExplicitDynamicConversion2 class. Additional information: by javassist.bytecode.BadBytecode: SExplicitDynamicConversion2$FROMsource2TOdestination2 ()Ljava/lang/String; in comgooglecodejmapperintegrationtestconversionsbeanDExplicitDynamicConversioncomgooglecodejmapperintegrationtestconversionsbeanSExplicitDynamicConversion2: conflict: *top* and java.lang.String"+newLine, log.toString());
     }
     
@@ -91,6 +92,7 @@ public class ExplicitDynamicConversionTest extends TestCase{
     		new JMapper<DExplicitDynamicConversion, SExplicitDynamicConversion2>(DExplicitDynamicConversion.class, SExplicitDynamicConversion2.class,"conversions/dynamicConversionTest2.xml");
 		}catch(JMapperException e){}
     	
+    	//TODO capire perche in questo test (in java8) mi va a prendere la conversione della classe anziche quella xml
     	assertEquals("ERROR - ConversionBodyIllegalCodeException: the firstConversion method contains illegal code, check the conversion code belonging to the SExplicitDynamicConversion2 class. Additional information: by javassist.bytecode.BadBytecode: SExplicitDynamicConversion2$FROMsource2TOdestination2 ()Ljava/lang/String; in comgooglecodejmapperintegrationtestconversionsbeanDExplicitDynamicConversioncomgooglecodejmapperintegrationtestconversionsbeanSExplicitDynamicConversion2dynamicConversionTest2xml: conflict: *top* and java.lang.String"+newLine, log.toString());
     }
     

@@ -2,7 +2,7 @@ package com.googlecode.jmapper.integrationtest.operations.bean;
 
 import com.googlecode.jmapper.annotations.JMap;
 
-public class Obj {
+public class Obj implements Comparable<Obj>{
 
 	@JMap
 	private String field;
@@ -81,6 +81,10 @@ public class Obj {
 	public String toString() {
 		return "Obj <field=" + field + ", field2=" + field2 + ", field3="
 				+ field3 + ">";
+	}
+	@Override
+	public int compareTo(Obj o) {
+		return this.equals(o)? 0:-1;
 	}
 	
 	

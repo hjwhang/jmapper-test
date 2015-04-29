@@ -43,7 +43,7 @@ public class XmlHandlerTest extends TestCase {
 		log.reset();
 	}
 	
-	public void testAddClass(){
+	public void testXmlHandlerMethods(){
 		// creo l'attributo da aggiungere
 		String[] attributes = new String[]{"field1Class1","field1Class2","field1Class3"};
 		Class<?>[]  classes = new Class []{Class1.class,Class2.class,Class3.class};
@@ -59,97 +59,94 @@ public class XmlHandlerTest extends TestCase {
 		assertEquals(1, list.size());
 		// l'elemento recuperato dev'essere uguale a quello passato al metodo
 		assertEquals(attribute, list.get(0));
-	}
-	
-	public void testAddClassException(){
+		
+		log.reset();
+		
 		// creo l'attributo da aggiungere
-		Attribute attribute = new Attribute("mappedField", new Value("targetField"));
-			
+		attribute = new Attribute("mappedField", new Value("targetField"));
+		
 		// avvio la funzione da testare
-    	try{
-    		xmlHandler.addClass(AnnotatedExampleClass.class, attribute);
+		try{
+			xmlHandler.addClass(AnnotatedExampleClass.class, attribute);
 		}catch(JMapperException e){}
 		
 		assertEquals("ERROR - XmlMappingClassExistException: AnnotatedExampleClass Class is present in the jmapper.xml configuration file"+newLine, log.toString());
-
-	}
-	
-	public void testAddAttributes(){
+		
+		log.reset();
+		
 		// creo l'attributo da aggiungere
-		String[] attributes = new String[]{"field2Class1","field2Class2","field2Class3"};
-		Class<?>[]  classes = new Class []{Class1.class,Class2.class,Class3.class};
-		Attribute attribute = new Attribute("field2",Converter.toTargetAttributes(attributes), classes);
-				
+		attributes = new String[]{"field2Class1","field2Class2","field2Class3"};
+		classes = new Class []{Class1.class,Class2.class,Class3.class};
+		attribute = new Attribute("field2",Converter.toTargetAttributes(attributes), classes);
+		
 		xmlHandler.addAttributes(AnnotatedExampleClass.class, attribute)
-				  .addAttributes(AnnotatedExampleClass.class, new Attribute("field3", new Value("targetField3")));
+		.addAttributes(AnnotatedExampleClass.class, new Attribute("field3", new Value("targetField3")));
 		
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		List<Attribute> list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
 		// la lista deve contenere un solo elemento
 		assertEquals(3, list.size());
 		// l'elemento recuperato dev'essere uguale a quello passato al metodo addAttributes
 		assertEquals(attribute, list.get(1));
-	}
-	
-	public void testAddAttributesException(){
+		
+		log.reset();
+		
 		// creo l'attributo da aggiungere
-		String[] attributes = new String[]{"field2Class1","field2Class2","field2Class3"};
-		Class<?>[]  classes = new Class []{Class1.class,Class2.class,Class3.class};
-		Attribute attribute = new Attribute("nonEsiste", Converter.toTargetAttributes(attributes), classes);
+		attributes = new String[]{"field2Class1","field2Class2","field2Class3"};
+		classes = new Class []{Class1.class,Class2.class,Class3.class};
+		attribute = new Attribute("nonEsiste", Converter.toTargetAttributes(attributes), classes);
 		
 		// il campo nonEsiste non � presente nella classe AnnotatedExampleClass
-    	try{
-    		xmlHandler.addAttributes(AnnotatedExampleClass.class, attribute);
+		try{
+			xmlHandler.addAttributes(AnnotatedExampleClass.class, attribute);
 		}catch(JMapperException e){}
 		assertEquals("ERROR - IllegalArgumentException: nonEsiste field not found on AnnotatedExampleClass Class"+newLine, log.toString());
 		log.reset();
-
+		
 		// il campo field1 � gi� configurato
 		attribute.setName("field1");
-    	try{
-    		xmlHandler.addAttributes(AnnotatedExampleClass.class, attribute);
+		try{
+			xmlHandler.addAttributes(AnnotatedExampleClass.class, attribute);
 		}catch(JMapperException e){}
 		assertEquals("ERROR - XmlMappingAttributeExistException: the field1 attribute already exist in AnnotatedExampleClass Class, check the jmapper.xml configuration file"+newLine, log.toString());
-	}
-	
-	public void testDeleteAttributes(){
-	
+		
+		log.reset();
+		
 		// creo l'attributo da aggiungere
-		String[] attributes = new String[]{"field1Class1","field1Class2","field1Class3"};
-		Class<?>[]  classes = new Class []{Class1.class,Class2.class,Class3.class};
-		Attribute attribute = new Attribute("field1", Converter.toTargetAttributes(attributes), classes);
+		attributes = new String[]{"field1Class1","field1Class2","field1Class3"};
+		classes = new Class []{Class1.class,Class2.class,Class3.class};
+		attribute = new Attribute("field1", Converter.toTargetAttributes(attributes), classes);
 		
 		// elimino il campo field2 dall'XML
 		xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field2");
 		
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		List<Attribute> list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
-
+		list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		
 		// la lista deve contenere un solo elemento
 		assertEquals(2, list.size());
 		// l'elemento recuperato dev'essere uguale a quello passato al metodo
 		assertEquals(attribute, list.get(0));
-	}
-	
-	public void testDeleteAttributesException(){
+		
+		log.reset();
 		
 		// cerco di eliminare un attributo appartenente ad una classe non configurata
-    	try{
-    		xmlHandler.deleteAttributes(Class1.class, "field2");
+		try{
+			xmlHandler.deleteAttributes(Class1.class, "field2");
 		}catch(JMapperException e){}
 		assertEquals("ERROR - XmlMappingClassDoesNotExistException: Class1 Class isn't present in the jmapper.xml configuration file"+newLine, log.toString());
 		log.reset();
 		
 		// elimino un campo inesistente nella classe AnnotatedExampleClass
-    	try{
-    		xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "campoInesistente");
+		try{
+			xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "campoInesistente");
 		}catch(JMapperException e){}
 		assertEquals("ERROR - IllegalArgumentException: campoInesistente field not found on AnnotatedExampleClass Class"+newLine, log.toString());
 		log.reset();
-
+		
 		// provo a eliminare un campo non presente nel file xml 
-    	try{
-    		xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field2");
+		try{
+			xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field2");
 		}catch(JMapperException e){}
 		assertEquals("ERROR - XmlMappingAttributeDoesNotExistException: in the jmapper.xml configuration file, field2 field does not exist in AnnotatedExampleClass Class"+newLine, log.toString());
 		log.reset();
@@ -157,86 +154,80 @@ public class XmlHandlerTest extends TestCase {
 		xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field3");
 		
 		// se � configurato solo un campo per questa classe, allora utilizzare deleteClass
-    	try{
-    		xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field1");
+		try{
+			xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field1");
 		}catch(JMapperException e){}
 		assertEquals("ERROR - WrongMethodException: AnnotatedExampleClass has only one attribute mapped, please use removeClass instead"+newLine, log.toString());
 		log.reset();
 		
-	}
-	
-	public void testOverrideClass(){
 		// creo l'attributo da aggiungere
-		String[] attributes = new String[]{"field2Class1","field2Class2","field2Class3"};
-		Class<?>[]  classes = new Class []{Class1.class,Class2.class,Class3.class};
-		Attribute attribute = new Attribute("field2", Converter.toTargetAttributes(attributes), classes);
-						
+		attributes = new String[]{"field2Class1","field2Class2","field2Class3"};
+		classes = new Class []{Class1.class,Class2.class,Class3.class};
+		attribute = new Attribute("field2", Converter.toTargetAttributes(attributes), classes);
+								
 		// avvio la funzione da testare
 		xmlHandler.overrideClass(AnnotatedExampleClass.class, attribute);
-				
+						
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		List<Attribute> list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
 
 		// la lista deve contenere un solo elemento
 		assertEquals(1, list.size());
 		// l'elemento recuperato dev'essere uguale a quello passato al metodo
 		assertEquals(attribute, list.get(0));
-	}
-	
-	public void testDeleteClass(){
+				
+		log.reset();
+						
 		xmlHandler.deleteClass(AnnotatedExampleClass.class);
 		// verifico che la classe sia stata eliminata
 		assertNull(xml.attributesLoad().get(AnnotatedExampleClass.class.getName()));
-	}
-	
-	public void testDeleteClassException(){
-    	try{
-    		xmlHandler.deleteClass(AnnotatedExampleClass.class);
+		
+		log.reset();
+		
+		try{
+			xmlHandler.deleteClass(AnnotatedExampleClass.class);
 		}catch(JMapperException e){}
 		assertEquals("ERROR - XmlMappingClassDoesNotExistException: AnnotatedExampleClass Class isn't present in the jmapper.xml configuration file"+newLine, log.toString());
-			
+		
 		// verifico che la classe sia stata eliminata
 		assertNull(xml.attributesLoad().get(AnnotatedExampleClass.class.getName()));
-	}
-	
-	public void testAddAnnotatedClass(){
+		
+		log.reset();
+		
 		// creo la configurazione xml partendo dalle annotation
 		xmlHandler.addAnnotatedClass(AnnotatedExampleClass.class)
 		
 		// creo la configurazione anche per una inner class
-				  .addAnnotatedClassAll(Inner.class);
-	}
-	
-	public void testOverrideAnnotatedClass(){
+		.addAnnotatedClassAll(Inner.class);
+		
+		log.reset();
+		
 		// aggiorna le configurazioni XML delle classi annotate
 		xmlHandler.overrideAnnotatedClass();
-
+		
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		List<Attribute> list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
-
+		list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		
 		// la lista deve contenere un solo elemento
 		assertEquals(3, list.size());
-	}
-
-	public void testCleanAnnotatedClass(){
+		
+		log.reset();
 		
 		// elimino le annotations dalla classe
 		xmlHandler.cleanAnnotatedClass(AnnotatedExampleClass.class)
-				  
+		
 		// testo la funziona anche con una inner class
-				  .cleanAnnotatedClassAll(Inner.class);
-				
-	}
-	
-	public void testFromXmlToAnnotation(){
+		.cleanAnnotatedClassAll(Inner.class);
+		
+		log.reset();
+		
 		// configuro con le annotation la classe passata analizzando l'xml
 		xmlHandler.fromXmlToAnnotation(AnnotatedExampleClass.class);
 		
 		// testo la funziona anche con una inner class
 		xmlHandler.fromXmlToAnnotationAll(Inner.class);
-	}
-	
-	public void testDeleteAnnotatedClasses(){
+		
+		log.reset();
 		
 		// elimino da jmapper.xml tutte le configurazioni relative
 		// a classi configurate con annotation
