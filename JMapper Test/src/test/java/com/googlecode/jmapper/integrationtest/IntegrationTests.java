@@ -25,10 +25,6 @@ public class IntegrationTests {
 		suite.addTest(ConfigurationTests.suite());
 		suite.addTest(OthersTests.suite());
 		
-		// performance tests
-//		suite.addTest(PerformanceTests.suite());
-								
-		//$JUnit-END$
 		return suite;
 	}
 }

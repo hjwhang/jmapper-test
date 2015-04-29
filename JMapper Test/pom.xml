@@ -45,24 +45,6 @@
 	  <version>1.7.12</version>
 	</dependency>
 	
-    <dependency> 
-      	<groupId>com.googlecode.performance</groupId>
-      	<artifactId>bb</artifactId>
-      	<version>1.0.0</version>
-    </dependency>
-    
-     <dependency> 
-      	<groupId>com.googlecode.performance</groupId>
-      	<artifactId>mt</artifactId>
-      	<version>1.0.0</version>
-    </dependency>
-    
-     <dependency> 
-      	<groupId>com.googlecode.performance</groupId>
-      	<artifactId>jsci-core</artifactId>
-      	<version>1.0.0</version>
-    </dependency>
-    
     <dependency>
       	<groupId>junit</groupId>
       	<artifactId>junit</artifactId>
