@@ -1,7 +1,6 @@
 package com.googlecode.jmapper.integrationtest.operations.bean;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import com.googlecode.jmapper.annotations.JMap;
 import com.googlecode.jmapper.annotations.JMapConversion;
