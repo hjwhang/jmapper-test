@@ -27,7 +27,6 @@ import com.googlecode.jmapper.integrationtest.operations.bean.BeanS2;
 import com.googlecode.jmapper.integrationtest.operations.bean.UndefinedD;
 import com.googlecode.jmapper.integrationtest.operations.bean.UndefinedS;
 import com.googlecode.jmapper.util.FilesManager;
-import com.googlecode.jmapper.util.GeneralUtility;
 
 public class JMapperExceptionTest extends TestCase {
 
@@ -128,7 +127,7 @@ public class JMapperExceptionTest extends TestCase {
 		/******** CHECK XML CONFIGURATION ****************************************/
 		log.reset();
 		
-		String xmlPath = "file:" + GeneralUtility.fileSeparator + FilesManager.searchFile("testJmapper.xml").getCanonicalPath();
+		String xmlPath = "file:" + FilesManager.searchFile("testJmapper.xml").getCanonicalPath();
 		
 		try{
 			new JMapper<BeanD2,BeanS>(BeanD2.class, BeanS.class, xmlPath);
