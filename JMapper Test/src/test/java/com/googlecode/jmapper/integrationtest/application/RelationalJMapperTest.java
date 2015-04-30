@@ -46,7 +46,7 @@ public class RelationalJMapperTest extends TestCase {
 	
 	public void testRelationalJMapperWithXML() throws IOException{
 		
-		String xmlPath = "file:" + GeneralUtility.fileSeparator + FilesManager.searchFile("jmapper-test.xml").getCanonicalPath();
+		String xmlPath = "file:" + FilesManager.searchFile("jmapper-test.xml").getCanonicalPath();
 		
 		RelationalJMapper<AnnotatedClass2> rm = new RelationalJMapper<AnnotatedClass2>(AnnotatedClass2.class,xmlPath);
 
