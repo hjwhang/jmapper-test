@@ -23,7 +23,6 @@ public class AvoidSetTest extends TestCase {
 		Logger.getLogger(JMapper.class).addAppender(new WriterAppender(new SimpleLayout(), log));
 	}
 	
-	
 	/**
 	 * ANNOTATION:
 	 * Test su metodi di conversione di tipo STATIC e DYNAMIC
