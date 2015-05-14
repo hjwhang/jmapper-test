@@ -1,6 +1,5 @@
 package com.googlecode.jmapper.integrationtest.others.bean;
 
-import com.googlecode.jmapper.annotations.JMapAccessor;
 
 public class FlatProSource {
 

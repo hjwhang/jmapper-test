@@ -22,6 +22,7 @@ public class PrimitiveComplexOperationMockS implements IMockS<PrimitiveComplexOp
 		return new ObjS<PrimitiveComplexOperationD, PrimitiveComplexOperationS>(null, getSAll());
 	}
 
+	@SuppressWarnings("serial")
 	private HashMap<String,Object> map = new HashMap<String,Object>(){{put("longField",new Long(2));}};
 	
 	private PrimitiveComplexOperationD getDAll(){

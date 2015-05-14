@@ -40,6 +40,7 @@ public class PrimitiveComplexOperationMockDS implements IMockDS<PrimitiveComplex
 
 	/************************************ INPUT METHODS ************************************/
 	
+	@SuppressWarnings("serial")
 	private HashMap<String,Object> map = new HashMap<String,Object>(){{put("longField",2L);}};
 	
 	private PrimitiveComplexOperationD getDAll(){

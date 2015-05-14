@@ -1,9 +1,6 @@
 package com.googlecode.jmapper.integrationtest.others.bean;
 
 import com.googlecode.jmapper.annotations.JGlobalMap;
-import com.googlecode.jmapper.annotations.JMapAccessor;
-import com.googlecode.jmapper.annotations.JMapConversion;
-import com.googlecode.jmapper.annotations.JMapConversion.Type;
 
 @JGlobalMap("user")
 public class FlatProDestination2 {

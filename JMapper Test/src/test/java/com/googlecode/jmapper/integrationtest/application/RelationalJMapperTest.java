@@ -15,7 +15,6 @@ import com.googlecode.jmapper.integrationtest.operations.bean.GlobalClass;
 import com.googlecode.jmapper.integrationtest.operations.bean.GlobalClass2;
 import com.googlecode.jmapper.integrationtest.operations.bean.GlobalClass3;
 import com.googlecode.jmapper.util.FilesManager;
-import com.googlecode.jmapper.xml.XmlHandler;
 
 public class RelationalJMapperTest extends TestCase {
 
