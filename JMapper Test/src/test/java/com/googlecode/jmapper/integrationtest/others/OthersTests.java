@@ -14,7 +14,9 @@ public class OthersTests {
 		suite.addTestSuite(BooleanGetTest.class);
 		/* Tests on avoid set method */
 		suite.addTestSuite(AvoidSetTest.class);
-
+		/* Tests on regex */
+		suite.addTestSuite(RegexTest.class);
+		
 		// $JUnit-END$
 		return suite;
 	}

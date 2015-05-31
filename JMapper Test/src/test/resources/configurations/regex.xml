@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmapper xmlns="https://jmapper-framework.googlecode.com"
+	xmlns:xsi="https://jmapper-framework.googlecode.com/svn"
+	xsi:noNamespaceSchemaLocation="https://jmapper-framework.googlecode.com/svn/jmapper-1.3.1.xsd">
+
+	<class
+		name="com.googlecode.jmapper.integrationtest.others.bean.BasicRegexDest">
+		<attribute name="boo">
+			<value name="\w+" />
+		</attribute>
+	</class>
+		<class
+		name="com.googlecode.jmapper.integrationtest.others.bean.ComplexRegexDest">
+		<attribute name="id">
+			<value name="\w+id" />
+			<classes>
+			<class name="com.googlecode.jmapper.integrationtest.others.bean.ComplexRegexSrc1"/>
+			<class name="com.googlecode.jmapper.integrationtest.others.bean.ComplexRegexSrc2"/>
+			</classes>
+		</attribute>
+	</class>
+</jmapper>
