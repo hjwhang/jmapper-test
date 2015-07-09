@@ -140,5 +140,13 @@ public class JMapperExceptionTest extends TestCase {
 			new JMapper<BeanD2,BeanS>(BeanD2.class, BeanS.class,ChooseConfig.DESTINATION,xmlPath);
 		}catch(JMapperException e){}
 		assertEquals("ERROR - MappingNotFoundException: BeanD2 isn't configured, verify " + xmlPath + " mapping file"+newLine, log.toString());
+
+		log.reset();
+		try{
+			new JMapper<BeanD2,BeanS>(BeanD2.class, BeanS.class,ChooseConfig.DESTINATION,"path/inesistente.xml");
+		}catch(JMapperException e){}
+		assertEquals("ERROR - FileNotFoundException: path/inesistente.xml file not found, please provide a correct path"+newLine, log.toString());
+
+		
 	}
 }
