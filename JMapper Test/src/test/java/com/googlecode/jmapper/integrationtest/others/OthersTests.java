@@ -16,6 +16,8 @@ public class OthersTests {
 		suite.addTestSuite(AvoidSetTest.class);
 		/* Tests on regex */
 		suite.addTestSuite(RegexTest.class);
+		/* Tests on Xml as content */
+		suite.addTestSuite(XmlAsContentTest.class);
 		
 		// $JUnit-END$
 		return suite;

@@ -20,6 +20,8 @@ public class ConversionTests {
 		    suite.addTestSuite(ExplicitConversionTest3.class);
 		    // conversion in xml and annotation between collections
 		    suite.addTestSuite(ExplicitConversionTest4.class);
+		    // conversion in XML with special characters
+		    suite.addTestSuite(ExplicitConversionTest5.class);
 		    // complex variables with internal mapping and conversion, in xml and annotation
 		    suite.addTestSuite(ExplicitRecursiveConversionTest.class);
 		    // conversion in xml and annotation between complex objects

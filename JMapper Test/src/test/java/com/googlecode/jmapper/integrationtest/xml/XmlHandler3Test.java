@@ -76,7 +76,7 @@ public class XmlHandler3Test extends TestCase {
 			xmlHandler.addClass(AnnotatedExampleClass.class, attribute);
 		}catch(JMapperException e){}
 		
-		assertEquals("ERROR - XmlMappingClassExistException: AnnotatedExampleClass Class is present in the jmapper.xml configuration file"+newLine, log.toString());
+		assertEquals("ERROR - XmlMappingClassExistException: AnnotatedExampleClass Class is present in the configuration:\njmapper.xml"+newLine, log.toString());
 
 		log.reset();
 		
@@ -114,7 +114,7 @@ public class XmlHandler3Test extends TestCase {
 		try{
 			xmlHandler.addAttributes(AnnotatedExampleClass.class, attribute);
 		}catch(JMapperException e){}
-		assertEquals("ERROR - XmlMappingAttributeExistException: the field1 attribute already exist in AnnotatedExampleClass Class, check the jmapper.xml configuration file"+newLine, log.toString());
+		assertEquals("ERROR - XmlMappingAttributeExistException: the field1 attribute already exist in AnnotatedExampleClass Class, check the configuration:\njmapper.xml"+newLine, log.toString());
 
 		log.reset();
 		
@@ -140,7 +140,7 @@ public class XmlHandler3Test extends TestCase {
 		try{
 			xmlHandler.deleteAttributes(Class1.class, "field2");
 		}catch(JMapperException e){}
-		assertEquals("ERROR - XmlMappingClassDoesNotExistException: Class1 Class isn't present in the jmapper.xml configuration file"+newLine, log.toString());
+		assertEquals("ERROR - XmlMappingClassDoesNotExistException: Class1 Class isn't present in the configuration:\njmapper.xml"+newLine, log.toString());
 		log.reset();
 		
 		// elimino un campo inesistente nella classe AnnotatedExampleClass
@@ -154,7 +154,7 @@ public class XmlHandler3Test extends TestCase {
 		try{
 			xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field2");
 		}catch(JMapperException e){}
-		assertEquals("ERROR - XmlMappingAttributeDoesNotExistException: in the jmapper.xml configuration file, field2 field does not exist in AnnotatedExampleClass Class"+newLine, log.toString());
+		assertEquals("ERROR - XmlMappingAttributeDoesNotExistException: field2 field does not exist in AnnotatedExampleClass Class.\n Configuration:\njmapper.xml"+newLine, log.toString());
 		log.reset();
 		
 		xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field3");
@@ -200,7 +200,7 @@ public class XmlHandler3Test extends TestCase {
 		try{
 			xmlHandler.deleteClass(AnnotatedExampleClass.class);
 		}catch(JMapperException e){}
-		assertEquals("ERROR - XmlMappingClassDoesNotExistException: AnnotatedExampleClass Class isn't present in the jmapper.xml configuration file"+newLine, log.toString());
+		assertEquals("ERROR - XmlMappingClassDoesNotExistException: AnnotatedExampleClass Class isn't present in the configuration:\njmapper.xml"+newLine, log.toString());
 		
 		// verifico che la classe sia stata eliminata
 		assertNull(xml.attributesLoad().get(AnnotatedExampleClass.class.getName()));
