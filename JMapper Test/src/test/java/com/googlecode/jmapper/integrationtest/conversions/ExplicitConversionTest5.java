@@ -21,7 +21,9 @@ JMapper<DExplicitConversion5, SExplicitConversion5> mapper;
 	
 	public void testDefault(){
 		mapper = new JMapper<DExplicitConversion5, SExplicitConversion5>(DExplicitConversion5.class, SExplicitConversion5.class,"conversions/conversionTest5.xml");
-		DExplicitConversion5 destination = mapper.getDestination(new SExplicitConversion5(new Explicit$$Conversion5NestedBean("$eee")));
+		DExplicitConversion5 destination = mapper.getDestination(new SExplicitConversion5(new Explicit$$Conversion5NestedBean("$eee"),"s$"));
 		assertEquals("$eee", destination.getLegDuration().getMeasure());
+		assertEquals("s$", destination.getStr$());
+		
 	}
 }
