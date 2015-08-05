@@ -1,5 +1,6 @@
 package com.googlecode.jmapper.integrationtest;
-
+//TODO scrivere test su Enumerations
+// implementare conversione Date Calendar
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 
