@@ -13,6 +13,7 @@ import com.googlecode.jmapper.JMapper;
 import com.googlecode.jmapper.integrationtest.others.bean.DestSerialUID;
 import com.googlecode.jmapper.integrationtest.others.bean.SrcSerialUID;
 
+//TODO modificare questo test dopo il rilascio
 public class SerialUIDTestSkip {//extends TestCase {
 	ByteArrayOutputStream log;
 	
