@@ -18,6 +18,12 @@ public class OthersTests {
 		suite.addTestSuite(RegexTest.class);
 		/* Tests on Xml as content */
 		suite.addTestSuite(XmlAsContentTest.class);
+		/* Tests on Enumerations */
+		suite.addTestSuite(EnumTest.class);
+		/* Tests on Inner classes */
+		suite.addTestSuite(InnerClassTest.class);
+		/* Tests on Null Pointer Control */
+		suite.addTestSuite(NullPointerTest.class);
 		
 		// $JUnit-END$
 		return suite;

@@ -13,7 +13,6 @@ import com.googlecode.jmapper.JMapper;
 import com.googlecode.jmapper.integrationtest.others.bean.DestEnum;
 import com.googlecode.jmapper.integrationtest.others.bean.EnumTestBean;
 import com.googlecode.jmapper.integrationtest.others.bean.SrcEnum;
-import com.googlecode.jmapper.xml.XmlHandler;
 
 public class EnumTest extends TestCase {
 	
@@ -26,8 +25,13 @@ public class EnumTest extends TestCase {
 	}
 
 	public void testBasic(){
-		new XmlHandler().addAnnotatedClass(DestEnum.class);
+		
 		DestEnum destination = new JMapper<DestEnum, SrcEnum>(DestEnum.class, SrcEnum.class).getDestination(new SrcEnum(EnumTestBean.DESTINATION));
+		assertEquals(EnumTestBean.DESTINATION, destination.getField());
+	}
+	
+	public void testXml(){
+		DestEnum destination = new JMapper<DestEnum, SrcEnum>(DestEnum.class, SrcEnum.class,"conversions/enumConversion.xml").getDestination(new SrcEnum(EnumTestBean.SOURCE));
 		assertEquals(EnumTestBean.DESTINATION, destination.getField());
 	}
 }

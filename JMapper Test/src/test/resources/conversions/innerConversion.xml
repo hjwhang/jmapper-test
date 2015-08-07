@@ -1,0 +1,11 @@
+<jmapper xmlns="https://jmapper-framework.googlecode.com" xmlns:xsi="https://jmapper-framework.googlecode.com/svn" xsi:noNamespaceSchemaLocation="https://jmapper-framework.googlecode.com/svn/jmapper-1.3.1.xsd">
+  <class name="com.googlecode.jmapper.integrationtest.others.bean.InnerClassDest">
+    <global>
+    </global>
+   <!-- Inner Classes aren't handled by Javassist  
+    <conversion name="conversion">
+         return ${source}.${source.set}(new com.googlecode.jmapper.integrationtest.others.bean.InnerClassSrc.InnerClassBean("field"));
+    </conversion> 
+    -->
+  </class>
+</jmapper>
