@@ -24,6 +24,8 @@ public class OthersTests {
 		suite.addTestSuite(InnerClassTest.class);
 		/* Tests on Null Pointer Control */
 		suite.addTestSuite(NullPointerTest.class);
+		/* Tests on serialVersionUID field */
+		suite.addTestSuite(SerialUIDTest.class);
 		
 		// $JUnit-END$
 		return suite;

@@ -13,11 +13,10 @@ import com.googlecode.jmapper.JMapper;
 import com.googlecode.jmapper.integrationtest.others.bean.DestSerialUID;
 import com.googlecode.jmapper.integrationtest.others.bean.SrcSerialUID;
 
-//TODO modificare questo test dopo il rilascio
-public class SerialUIDTestSkip {//extends TestCase {
+public class SerialUIDTest extends TestCase {
 	ByteArrayOutputStream log;
 	
-	public SerialUIDTestSkip() {
+	public SerialUIDTest() {
 		log = new ByteArrayOutputStream();
 		PropertyConfigurator.configure("log4j.properties");
 		Logger.getLogger(JMapper.class).addAppender(new WriterAppender(new SimpleLayout(), log));
@@ -28,6 +27,6 @@ public class SerialUIDTestSkip {//extends TestCase {
 		
 		DestSerialUID destination = mapper.getDestination(new SrcSerialUID("prova"));
 		
-//		assertEquals("prova", destination.getField());
+		assertEquals("prova", destination.getField());
 	}
 }
