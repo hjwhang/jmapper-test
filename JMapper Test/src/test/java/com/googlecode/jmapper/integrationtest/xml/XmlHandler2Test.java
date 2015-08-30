@@ -48,7 +48,7 @@ public class XmlHandler2Test extends TestCase {
 		
 		xmlHandler.addClass(AnnotatedExampleClass2.class, global);
 		
-		Global result =  xml.globalsLoad().get(AnnotatedExampleClass2.class.getName());
+		Global result =  xml.loadGlobals().get(AnnotatedExampleClass2.class.getName());
 		assertEquals(global, result);
 		
 		log.reset();
@@ -64,7 +64,7 @@ public class XmlHandler2Test extends TestCase {
 		try{
 			xmlHandler.deleteGlobal(AnnotatedExampleClass2.class);
 		}catch(JMapperException e){}
-		assertNull(xml.globalsLoad().get(AnnotatedExampleClass2.class));
+		assertNull(xml.loadGlobals().get(AnnotatedExampleClass2.class));
 
 		log.reset();
 		
@@ -84,7 +84,7 @@ public class XmlHandler2Test extends TestCase {
 		
 		xmlHandler.addClass(AnnotatedExampleClass2.class, attribute);
 		xmlHandler.addGlobal(AnnotatedExampleClass2.class, global);
-		result =  xml.globalsLoad().get(AnnotatedExampleClass2.class.getName());
+		result =  xml.loadGlobals().get(AnnotatedExampleClass2.class.getName());
 		assertEquals(global, result);
 
 		log.reset();
@@ -102,7 +102,7 @@ public class XmlHandler2Test extends TestCase {
 		
 		xmlHandler.overrideGlobal(AnnotatedExampleClass2.class, global);
 		
-		result =  xml.globalsLoad().get(AnnotatedExampleClass2.class.getName());
+		result =  xml.loadGlobals().get(AnnotatedExampleClass2.class.getName());
 		assertEquals(global, result);
 
 		log.reset();
@@ -114,13 +114,13 @@ public class XmlHandler2Test extends TestCase {
 		
 		xmlHandler.addAnnotatedClassAll(AnnotatedExampleClass2.class);
 		
-		global = xml.globalsLoad().get(AnnotatedExampleClass2.class.getName());
+		global = xml.loadGlobals().get(AnnotatedExampleClass2.class.getName());
 		
 		assertEquals("globalMapping", global.getValue());
 		assertEquals(3, global.getClasses().length);
 		assertEquals("field2", global.getExcluded()[0]);
 		
-		global = xml.globalsLoad().get(AnnotatedExampleClass2.Inner.class.getName());
+		global = xml.loadGlobals().get(AnnotatedExampleClass2.Inner.class.getName());
 		
 		assertEquals(null, global.getValue());
 		assertEquals(null, global.getClasses());
@@ -130,7 +130,7 @@ public class XmlHandler2Test extends TestCase {
 		
 		xmlHandler.overrideAnnotatedClass();
 		
-		global = xml.globalsLoad().get(AnnotatedExampleClass2.class.getName());
+		global = xml.loadGlobals().get(AnnotatedExampleClass2.class.getName());
 		
 		assertEquals("globalMapping", global.getValue());
 
@@ -146,7 +146,7 @@ public class XmlHandler2Test extends TestCase {
 		
 		xmlHandler.deleteAnnotatedClasses();
 		
-		assertNull(xml.globalsLoad().get(AnnotatedExampleClass2.class.getName()));
+		assertNull(xml.loadGlobals().get(AnnotatedExampleClass2.class.getName()));
 		
 	}
 

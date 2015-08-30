@@ -16,6 +16,7 @@ import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapD3;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapD4;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapD5;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapD6;
+import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapDInheritance;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapS;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapS2;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapS3;
@@ -91,6 +92,22 @@ public class JGlobalMapTest extends TestCase {
 		assertEquals("field3", destination.getField2());
 		assertEquals("field3", destination.getField3());
 		
+	}
+	
+	
+	/**
+	 * Test sulla ereditarietà dell'annotation JGlobalMap
+	 */
+	public void testGlobalInheritance(){
+			
+		JMapper<JGlobalMapDInheritance, JGlobalMapS> mapper = 
+					
+			new JMapper<JGlobalMapDInheritance, JGlobalMapS>(JGlobalMapDInheritance.class, JGlobalMapS.class);
+			
+		JGlobalMapDInheritance destination = mapper.getDestination(new JGlobalMapS("field1", "field2", "field3"));
+		assertEquals("field1", destination.getField());
+		assertEquals("field2", destination.getField2());
+		assertEquals(null, destination.getField3());
 	}
 	
 	public void testJGlobalMap6(){

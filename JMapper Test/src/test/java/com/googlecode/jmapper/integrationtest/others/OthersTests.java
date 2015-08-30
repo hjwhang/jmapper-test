@@ -26,6 +26,14 @@ public class OthersTests {
 		suite.addTestSuite(NullPointerTest.class);
 		/* Tests on serialVersionUID field */
 		suite.addTestSuite(SerialUIDTest.class);
+		/* Tests on inheritance mapping */
+		suite.addTestSuite(InheritanceTest.class);
+		/* Tests on inheritance mapping with RelationalJMapper */
+		suite.addTestSuite(InheritanceTest2.class);
+		/* Tests on JGlobalMap override */
+		suite.addTestSuite(JGlobalMapOvverideTest.class);
+		/* Tests on global node override */
+		suite.addTestSuite(GlobalXMLOverrideTest.class);
 		
 		// $JUnit-END$
 		return suite;

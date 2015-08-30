@@ -14,6 +14,7 @@ import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapD;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapD2;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapD3;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapD6;
+import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapDInheritance;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapS;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapS2;
 import com.googlecode.jmapper.integrationtest.configurations.bean.JGlobalMapS3;
@@ -41,6 +42,18 @@ public class GlobalNodeTest extends TestCase {
 		assertEquals("field2", destination.getField2());
 		assertEquals(null, destination.getField3());
 		
+	}
+	//TODO testare anche l'ovveride di JGlobalMap
+	public void testGlobalNodeInheritance(){
+			
+		JMapper<JGlobalMapDInheritance, JGlobalMapS> mapper = 
+					
+		new JMapper<JGlobalMapDInheritance, JGlobalMapS>(JGlobalMapDInheritance.class, JGlobalMapS.class,"configurations/global.xml");
+			
+		JGlobalMapDInheritance destination = mapper.getDestination(new JGlobalMapS("field1", "field2", "field3"));
+		assertEquals("field1", destination.getField());
+		assertEquals("field2", destination.getField2());
+		assertEquals(null, destination.getField3());
 	}
 	
 	public void testGlobalNode2(){

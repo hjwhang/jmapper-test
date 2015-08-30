@@ -1,0 +1,13 @@
+<jmapper xmlns="https://jmapper-framework.googlecode.com" xmlns:xsi="https://jmapper-framework.googlecode.com/svn" xsi:noNamespaceSchemaLocation="https://jmapper-framework.googlecode.com/svn/jmapper-1.3.1.xsd">
+  <class name="com.googlecode.jmapper.integrationtest.others.InheritanceTest$AbstractBoI">
+    <attribute name="boIfield">
+      <value name="boIfield"/>
+      <attributes>
+        <attribute name="id"/>
+      </attributes>
+      <classes>
+        <class name="com.googlecode.jmapper.integrationtest.others.InheritanceTest$PivotI"/>
+      </classes>
+    </attribute>
+  </class>
+</jmapper>

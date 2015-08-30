@@ -45,7 +45,7 @@ public class RelationalJMapperExceptionTest extends TestCase {
     	try{
     		new RelationalJMapper<MappedObject>(MappedObject.class);
 		}catch(JMapperException e){}
-		assertEquals("ERROR - MappingErrorException: the mapping configuration, of the intS field beloging to MappedObject Class, doesn't contain classes"+newLine, log.toString());
+		assertEquals("ERROR - MappingErrorException: the mapping configuration, of the intS field beloging to MappedObject Class, doesn't contains classes"+newLine, log.toString());
 		
 		log.reset();
     	try{

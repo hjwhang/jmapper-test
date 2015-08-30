@@ -56,14 +56,14 @@ public class XmlHandler3Test extends TestCase {
 		xmlHandler.addClass(AnnotatedExampleClass.class, global, attribute);
 		
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		List<Attribute> list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		List<Attribute> list =  xml.loadAttributes().get(AnnotatedExampleClass.class.getName());
 
 		// la lista deve contenere un solo elemento
 		assertEquals(1, list.size());
 		// l'elemento recuperato dev'essere uguale a quello passato al metodo
 		assertEquals(attribute, list.get(0));
 		
-		Global result = xml.globalsLoad().get(AnnotatedExampleClass.class.getName());
+		Global result = xml.loadGlobals().get(AnnotatedExampleClass.class.getName());
 		assertEquals(global, result);
 
 		log.reset();
@@ -89,7 +89,7 @@ public class XmlHandler3Test extends TestCase {
 		.addAttributes(AnnotatedExampleClass.class, new Attribute("field3", new Value("targetField3")));
 		
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		list =  xml.loadAttributes().get(AnnotatedExampleClass.class.getName());
 		// la lista deve contenere un solo elemento
 		assertEquals(3, list.size());
 		// l'elemento recuperato dev'essere uguale a quello passato al metodo addAttributes
@@ -127,7 +127,7 @@ public class XmlHandler3Test extends TestCase {
 		xmlHandler.deleteAttributes(AnnotatedExampleClass.class, "field2");
 		
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		list =  xml.loadAttributes().get(AnnotatedExampleClass.class.getName());
 		
 		// la lista deve contenere un solo elemento
 		assertEquals(2, list.size());
@@ -179,21 +179,21 @@ public class XmlHandler3Test extends TestCase {
 		xmlHandler.overrideClass(AnnotatedExampleClass.class, global, attribute);
 		
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		list =  xml.loadAttributes().get(AnnotatedExampleClass.class.getName());
 		
 		// la lista deve contenere un solo elemento
 		assertEquals(1, list.size());
 		// l'elemento recuperato dev'essere uguale a quello passato al metodo
 		assertEquals(attribute, list.get(0));
 		
-		result =  xml.globalsLoad().get(AnnotatedExampleClass.class.getName());
+		result =  xml.loadGlobals().get(AnnotatedExampleClass.class.getName());
 		assertEquals(global, result);
 
 		log.reset();
 		
 		xmlHandler.deleteClass(AnnotatedExampleClass.class);
 		// verifico che la classe sia stata eliminata
-		assertNull(xml.attributesLoad().get(AnnotatedExampleClass.class.getName()));
+		assertNull(xml.loadAttributes().get(AnnotatedExampleClass.class.getName()));
 
 		log.reset();
 				
@@ -203,7 +203,7 @@ public class XmlHandler3Test extends TestCase {
 		assertEquals("ERROR - XmlMappingClassDoesNotExistException: AnnotatedExampleClass Class isn't present in the configuration:\njmapper.xml"+newLine, log.toString());
 		
 		// verifico che la classe sia stata eliminata
-		assertNull(xml.attributesLoad().get(AnnotatedExampleClass.class.getName()));
+		assertNull(xml.loadAttributes().get(AnnotatedExampleClass.class.getName()));
 
 		log.reset();
 		
@@ -221,7 +221,7 @@ public class XmlHandler3Test extends TestCase {
 		}catch(JMapperException e){}
 		
 		// carico la configurazione e ottengo la lista degli attributi associati alla classe
-		list =  xml.attributesLoad().get(AnnotatedExampleClass.class.getName());
+		list =  xml.loadAttributes().get(AnnotatedExampleClass.class.getName());
 		
 		// la lista deve contenere un solo elemento
 		assertEquals(3, list.size());
@@ -250,8 +250,8 @@ public class XmlHandler3Test extends TestCase {
 		
 		// verifico che non esista la configurazione xml della classe
 		// AnnotatedExampleClass
-		assertNull(xml.attributesLoad().get(AnnotatedExampleClass.class.getName()));
-		assertNull(xml.attributesLoad().get(Inner.class.getName()));
-		assertNull(xml.attributesLoad().get(Inner.Class.class.getName()));
+		assertNull(xml.loadAttributes().get(AnnotatedExampleClass.class.getName()));
+		assertNull(xml.loadAttributes().get(Inner.class.getName()));
+		assertNull(xml.loadAttributes().get(Inner.Class.class.getName()));
 	}
 }

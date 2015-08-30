@@ -109,8 +109,8 @@ public class JMapperExceptionTest extends TestCase {
 		log.reset();
 		try{
 			new JMapper<BeanD3, BeanS2>(BeanD3.class, BeanS2.class);
-		}catch(JMapperException e){}
-		assertEquals("ERROR - UndefinedMappingException: it was not possible to map the mapped field field of the BeanD3 Class with the field field of BeanS2 Class, please check the configuration"+newLine, log.toString());
+		}catch(JMapperException e){e.printStackTrace();}
+ 		assertEquals("ERROR - UndefinedMappingException: it was not possible to map the mapped field field of the BeanD3 Class with the field field of BeanS2 Class, please check the configuration"+newLine, log.toString());
 		
 		log.reset();
 		try{
