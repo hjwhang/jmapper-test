@@ -11,7 +11,6 @@ import com.googlecode.jmapper.JMapper;
 import com.googlecode.jmapper.RelationalJMapper;
 import com.googlecode.jmapper.annotations.JGlobalMap;
 import com.googlecode.jmapper.annotations.JMap;
-import com.googlecode.jmapper.xml.XmlHandler;
 
 import junit.framework.TestCase;
 

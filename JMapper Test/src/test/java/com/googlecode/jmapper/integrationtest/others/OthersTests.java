@@ -34,6 +34,10 @@ public class OthersTests {
 		suite.addTestSuite(JGlobalMapOvverideTest.class);
 		/* Tests on global node override */
 		suite.addTestSuite(GlobalXMLOverrideTest.class);
+		/* Tests on flattern mapping */
+		suite.addTestSuite(FlatternTest.class);
+		/* Tests on recursive list mapping */
+		suite.addTestSuite(RecursiveListMappingTest.class);
 		
 		// $JUnit-END$
 		return suite;
