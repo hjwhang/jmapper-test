@@ -43,7 +43,7 @@ public class GlobalNodeTest extends TestCase {
 		assertEquals(null, destination.getField3());
 		
 	}
-	//TODO testare anche l'ovveride di JGlobalMap
+	
 	public void testGlobalNodeInheritance(){
 			
 		JMapper<JGlobalMapDInheritance, JGlobalMapS> mapper = 

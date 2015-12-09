@@ -5,6 +5,7 @@ import com.googlecode.jmapper.integrationtest.IntegrationTests;
 import com.googlecode.jmapper.integrationtest.application.ApplicationTests;
 import com.googlecode.jmapper.integrationtest.configurations.ConfigurationTests;
 import com.googlecode.jmapper.integrationtest.conversions.ConversionTests;
+import com.googlecode.jmapper.integrationtest.nestedmapping.NestedMappingTests;
 import com.googlecode.jmapper.integrationtest.operations.OperationTests;
 import com.googlecode.jmapper.integrationtest.others.OthersTests;
 import com.googlecode.jmapper.integrationtest.xml.XmlTests;
@@ -23,8 +24,8 @@ public class IntegrationTests {
 		suite.addTest(ConversionTests.suite());
 		suite.addTest(XmlTests.suite());
 		suite.addTest(ConfigurationTests.suite());
+		suite.addTest(NestedMappingTests.suite());
 		suite.addTest(OthersTests.suite());
-		
 		return suite;
 	}
 }
