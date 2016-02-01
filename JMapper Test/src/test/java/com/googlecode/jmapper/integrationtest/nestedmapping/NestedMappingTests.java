@@ -13,6 +13,7 @@ public class NestedMappingTests {
 		// $JUnit-BEGIN$
 		
 		suite.addTestSuite(NestedMappingTest.class);
+		suite.addTestSuite(NestedMappingExceptionTest.class);
 		
 		// $JUnit-END$
 		return suite;
