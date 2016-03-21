@@ -62,6 +62,7 @@ public class OperationTests {
 			suite.addTestSuite(ListArrayConversionSTest.class);
 			suite.addTestSuite(MappedListArrayDSTest.class);
 			suite.addTestSuite(MappedListArraySTest.class);
+			//TODO aggiungere set <-> Array
 			
 		/*  Tests on objects		 	       */
 			suite.addTestSuite(ObjectDSTest.class);
