@@ -1,5 +1,9 @@
 package com.googlecode.jmapper.integrationtest.others;
 
+import com.googlecode.jmapper.integrationtest.others.github.APIConversionTest;
+import com.googlecode.jmapper.integrationtest.others.github.CastTest;
+import com.googlecode.jmapper.integrationtest.others.github.MultiThreadingTest;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -38,6 +42,12 @@ public class OthersTests {
 		suite.addTestSuite(FlatternTest.class);
 		/* Tests on recursive list mapping */
 		suite.addTestSuite(RecursiveListMappingTest.class);
+		/* Tests on explicit cast */
+		suite.addTestSuite(CastTest.class);
+		/* Tests on multi threading */
+		suite.addTestSuite(MultiThreadingTest.class);
+		/* Tests on conversion via API */
+		suite.addTestSuite(APIConversionTest.class);
 		
 		// $JUnit-END$
 		return suite;
