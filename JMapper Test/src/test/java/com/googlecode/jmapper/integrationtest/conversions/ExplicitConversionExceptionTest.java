@@ -38,7 +38,7 @@ public class ExplicitConversionExceptionTest extends TestCase {
 		try{
 			new JMapper<DestStaticSignatureWrong, SrcStaticSignatureWrong>(DestStaticSignatureWrong.class,SrcStaticSignatureWrong.class); 
 		}catch(JMapperException e){}
-		assertEquals("ERROR - ConversionBodyIllegalCodeException: error in static conversion: probably is an incompatibility of signature, the expected input fields do not match with the real ones, checks the configured class."+newLine, log.toString());
+		assertEquals("ERROR - ConversionBodyIllegalCodeException: There is an error in the generated method. Additional information: [source error] conversion(java.lang.StringBuilder,java.lang.StringBuilder) not found in com.googlecode.jmapper.integrationtest.conversions.bean.DestStaticSignatureWrong"+newLine, log.toString());
 	}
 	
 	public void testParameterNumber(){

@@ -72,13 +72,6 @@ public class JMapperExceptionTest extends TestCase {
 		}catch(JMapperException e){}
 		assertEquals("ERROR - IllegalArgumentException: Source Class can not be an interface"+newLine,log.toString());
 
-		/******** THE CLASS BEAND HASN'T EMPTY CONSTRUCTOR ***********************/
-		log.reset();
-		try{
-			new JMapper(BeanD.class, BeanS.class);
-		}catch(JMapperException e){}
-		assertEquals("ERROR - MalformedBeanException: the class: BeanD hasn't empty constructor"+newLine,log.toString());
-
 		/******** THE CLASSES BEAND2 AND BEANS AREN'T CONFIGURED *****************/
 		log.reset();
 		try{

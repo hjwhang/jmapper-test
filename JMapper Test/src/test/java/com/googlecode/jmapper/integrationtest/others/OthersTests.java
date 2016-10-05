@@ -3,6 +3,8 @@ package com.googlecode.jmapper.integrationtest.others;
 import com.googlecode.jmapper.integrationtest.others.github.APIConversionTest;
 import com.googlecode.jmapper.integrationtest.others.github.CastTest;
 import com.googlecode.jmapper.integrationtest.others.github.MultiThreadingTest;
+import com.googlecode.jmapper.integrationtest.others.github.NestedMappingTest;
+import com.googlecode.jmapper.integrationtest.others.github.NotEmptyConstructorTest;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -48,6 +50,20 @@ public class OthersTests {
 		suite.addTestSuite(MultiThreadingTest.class);
 		/* Tests on conversion via API */
 		suite.addTestSuite(APIConversionTest.class);
+		/* Test on StringBuilder <-> String conversion */
+		suite.addTestSuite(StringStringBuilderTest.class);
+		/* Test on StringBuffer <-> String conversion */
+		suite.addTestSuite(StringStringBufferTest.class);
+		/* Test on Date <-> Calendar conversion */
+		suite.addTestSuite(DateCalendarTest.class);
+		/* Test on String <-> Enum conversion */
+		suite.addTestSuite(StringEnumTest.class);
+		/* Test on Enum <-> Enum conversion */
+		suite.addTestSuite(EnumEnumTest.class);
+		/* Test on immutable objects */
+		suite.addTestSuite(NotEmptyConstructorTest.class);
+		/* Test on immutable objects */
+		suite.addTestSuite(NestedMappingTest.class);
 		
 		// $JUnit-END$
 		return suite;

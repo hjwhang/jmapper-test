@@ -24,8 +24,8 @@ public class CollectionConversionMockS extends ACollectionMock implements IMockS
 	}
 
 	private CollectionConversionD getDAll(){
-		return new CollectionConversionD(add(new ArrayList<String>(),"2","1"), 
-										 add(new ArrayList<Integer>(),4,3));
+		return new CollectionConversionD(add(new ArrayList<String>(),"1","2"), 
+										 add(new ArrayList<Integer>(),3,4));
 	}
 	
 	private CollectionConversionS getSAll(){

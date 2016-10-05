@@ -58,12 +58,12 @@ public class CollectionConversionMockDS extends ACollectionMock implements IMock
 	}
 	
 	private CollectionConversionD AllAllOutput(){
-		return new CollectionConversionD(add(new ArrayList<String>(),"2","1","20","10"),
-										 add(new ArrayList<Integer>(),4,3,40,30));
+		return new CollectionConversionD(add(new ArrayList<String>(),"2","1","10","20"),
+										 add(new ArrayList<Integer>(),4,3,30,40));
 	}
 	private CollectionConversionD AllValuedOutput(){
 		return new CollectionConversionD(add(new ArrayList<String>(),"2","1"),
-				add(new ArrayList<Integer>(),4,3,40,30));
+				add(new ArrayList<Integer>(),4,3,30,40));
 	}
 	private CollectionConversionD ValuedNullOutput(){
 		return new CollectionConversionD(null,
@@ -71,11 +71,11 @@ public class CollectionConversionMockDS extends ACollectionMock implements IMock
 	}
 	private CollectionConversionD ValuedAllOutput(){
 		return new CollectionConversionD(null,
-										 add(new ArrayList<Integer>(),4,3,40,30));
+										 add(new ArrayList<Integer>(),4,3,30,40));
 	}
 	private CollectionConversionD ValuedValuedOutput(){
 		return new CollectionConversionD(null,
-				 						 add(new ArrayList<Integer>(),4,3,40,30));
+				 						 add(new ArrayList<Integer>(),4,3,30,40));
 }
 	private CollectionConversionD NullValuedOutput(){
 		return new CollectionConversionD(null,

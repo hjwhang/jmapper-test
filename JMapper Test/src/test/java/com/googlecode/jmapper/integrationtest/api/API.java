@@ -9,6 +9,7 @@ import com.googlecode.jmapper.integrationtest.configurations.bean.Destination;
 public class API {
 
 	public static void main(String[] args) {
+		System.out.println(
 		new JMapperAPI()
 			.add(mappedClass(Destination.class)
 					.add(global().excludedAttributes("other").
@@ -21,12 +22,12 @@ public class API {
 					.add(attribute("destinationField")
 							.value("sourceField"))
 					.add(conversion("conversionName")
-							.from("","")
-							.to("")
+							.from("A","B")
+							.to("C","D")
 							.avoidSet(false)
 							.type(Type.STATIC))
 					 
-			);
+			).toXStream().toString());
 	}
 
 }
