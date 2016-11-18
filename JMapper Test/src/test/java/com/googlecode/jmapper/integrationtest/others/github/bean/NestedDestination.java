@@ -1,7 +1,7 @@
 package com.googlecode.jmapper.integrationtest.others.github.bean;
 
 public class NestedDestination {
-	private String nestedDestinationData;
+	private String nestedDestinationData = "Default Destination Text";
 
 	public String getNestedDestinationData() {
 		return nestedDestinationData;

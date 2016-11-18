@@ -14,6 +14,7 @@ public class NestedMappingTests {
 		
 		suite.addTestSuite(NestedMappingTest.class);
 		suite.addTestSuite(NestedMappingExceptionTest.class);
+		//suite.addTestSuite(SafeNavigationOperatorTest.class);
 		
 		// $JUnit-END$
 		return suite;

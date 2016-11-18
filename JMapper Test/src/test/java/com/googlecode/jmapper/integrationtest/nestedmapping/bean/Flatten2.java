@@ -2,18 +2,19 @@ package com.googlecode.jmapper.integrationtest.nestedmapping.bean;
 
 import com.googlecode.jmapper.annotations.JMap;
 
-public class Source {
+public class Flatten2 {
 
-	@JMap("${field.test}")
+	@JMap("${nested2.?nested3.?nested4}")
 	private String field;
 
-	public Source() {
-	}
+	public Flatten2() {}
 	
-	public Source(String field) {
+	
+	public Flatten2(String field) {
 		super();
 		this.field = field;
 	}
+
 
 	public String getField() {
 		return field;
@@ -22,6 +23,7 @@ public class Source {
 	public void setField(String field) {
 		this.field = field;
 	}
+	
 	
 	
 }

@@ -8,6 +8,7 @@ import com.googlecode.jmapper.integrationtest.conversions.ConversionTests;
 import com.googlecode.jmapper.integrationtest.nestedmapping.NestedMappingTests;
 import com.googlecode.jmapper.integrationtest.operations.OperationTests;
 import com.googlecode.jmapper.integrationtest.others.OthersTests;
+import com.googlecode.jmapper.integrationtest.others.github.GithubTests;
 import com.googlecode.jmapper.integrationtest.xml.XmlTests;
 
 import junit.framework.Test;
@@ -26,6 +27,7 @@ public class IntegrationTests {
 		suite.addTest(ConfigurationTests.suite());
 		suite.addTest(NestedMappingTests.suite());
 		suite.addTest(OthersTests.suite());
+		suite.addTest(GithubTests.suite());
 		return suite;
 	}
 }

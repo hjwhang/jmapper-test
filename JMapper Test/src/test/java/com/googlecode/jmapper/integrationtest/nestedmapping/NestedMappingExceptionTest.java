@@ -13,7 +13,7 @@ import com.googlecode.jmapper.integrationtest.nestedmapping.bean.Destination;
 import com.googlecode.jmapper.integrationtest.nestedmapping.bean.Flatten;
 import com.googlecode.jmapper.integrationtest.nestedmapping.bean.Nested;
 import com.googlecode.jmapper.integrationtest.nestedmapping.bean.Nested2;
-import com.googlecode.jmapper.integrationtest.nestedmapping.bean.Source;
+import com.googlecode.jmapper.integrationtest.nestedmapping.bean.Source2;
 import com.googlecode.jmapper.util.GeneralUtility;
 
 import junit.framework.TestCase;
@@ -32,9 +32,10 @@ public class NestedMappingExceptionTest extends TestCase {
 		
 		log.reset();
 		try{
-			new JMapper<Destination,Source>(Destination.class,Source.class);
+			new JMapper<Destination,Source2>(Destination.class,Source2.class);
+			
 		}catch(JMapperException e){}
-		assertEquals("ERROR - InvalidNestedMappingException: Invalid nested mapping: ${field.test} Check the configured field: Source.field (target class: Destination). More information: There is no field test in Class String" + GeneralUtility.newLine, log.toString());
+		assertEquals("ERROR - InvalidNestedMappingException: Invalid nested mapping: ${field.test} Check the configured field: Source2.field (target class: Destination). More information: There is no field test in Class String" + GeneralUtility.newLine, log.toString());
 	}
 	
 	public void testNestedSourceBeanNull(){

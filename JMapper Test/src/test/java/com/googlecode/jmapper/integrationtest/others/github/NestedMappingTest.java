@@ -8,6 +8,7 @@ import org.apache.log4j.SimpleLayout;
 import org.apache.log4j.WriterAppender;
 
 import com.googlecode.jmapper.JMapper;
+import com.googlecode.jmapper.api.enums.MappingType;
 import com.googlecode.jmapper.integrationtest.others.github.bean.Destination;
 import com.googlecode.jmapper.integrationtest.others.github.bean.NestedSource;
 import com.googlecode.jmapper.integrationtest.others.github.bean.Source;
@@ -31,16 +32,16 @@ public class NestedMappingTest extends TestCase {
 	public void testNestedMapping(){
 		JMapper<Destination, Source> mapper = new JMapper<Destination, Source>(Destination.class, Source.class);
 		
-		NestedSource nestedSource = new NestedSource("nestedSourceData");
+		NestedSource nestedSource = new NestedSource(null);
 		
 		Source source = new Source();
 		source.setSourceText("sourceText");
 		source.setNestedSource(nestedSource);
 		
-		Destination destination = mapper.getDestination(source);
+		Destination destination = mapper.getDestination(source,MappingType.ONLY_VALUED_FIELDS);
 		
 		assertEquals("sourceText", destination.getDestinationText());
-		assertEquals("nestedSourceData", destination.getNestedDestination().getNestedDestinationData());
+		assertEquals("Default Destination Text", destination.getNestedDestination().getNestedDestinationData());
 	}
 	
 }

@@ -2,6 +2,7 @@ package com.googlecode.jmapper.integrationtest.others;
 
 import com.googlecode.jmapper.integrationtest.others.github.APIConversionTest;
 import com.googlecode.jmapper.integrationtest.others.github.CastTest;
+import com.googlecode.jmapper.integrationtest.others.github.ConversionNestedMappingTest;
 import com.googlecode.jmapper.integrationtest.others.github.MultiThreadingTest;
 import com.googlecode.jmapper.integrationtest.others.github.NestedMappingTest;
 import com.googlecode.jmapper.integrationtest.others.github.NotEmptyConstructorTest;
@@ -44,12 +45,6 @@ public class OthersTests {
 		suite.addTestSuite(FlatternTest.class);
 		/* Tests on recursive list mapping */
 		suite.addTestSuite(RecursiveListMappingTest.class);
-		/* Tests on explicit cast */
-		suite.addTestSuite(CastTest.class);
-		/* Tests on multi threading */
-		suite.addTestSuite(MultiThreadingTest.class);
-		/* Tests on conversion via API */
-		suite.addTestSuite(APIConversionTest.class);
 		/* Test on StringBuilder <-> String conversion */
 		suite.addTestSuite(StringStringBuilderTest.class);
 		/* Test on StringBuffer <-> String conversion */
@@ -60,11 +55,6 @@ public class OthersTests {
 		suite.addTestSuite(StringEnumTest.class);
 		/* Test on Enum <-> Enum conversion */
 		suite.addTestSuite(EnumEnumTest.class);
-		/* Test on immutable objects */
-		suite.addTestSuite(NotEmptyConstructorTest.class);
-		/* Test on immutable objects */
-		suite.addTestSuite(NestedMappingTest.class);
-		
 		// $JUnit-END$
 		return suite;
 	}
